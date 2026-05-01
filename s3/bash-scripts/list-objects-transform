@@ -1,0 +1,5 @@
+#!/usr/bin/env bash#!/usr/bin/env bash
+# echo "Listing and transforming objects..."
+
+aws s3api list-objects-v2 --bucket practice-timrxd --query Contents[].Key \
+| jq -n '{Objects: [inputs | .[] | {Key: .}]}'

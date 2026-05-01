@@ -1,0 +1,15 @@
+#!/usr/bin/env bash#!/usr/bin/env bash
+OUT_DIR="/tmp/aws"
+set -e
+
+rm -rf $OUT_DIR
+mkdir -p $OUT_DIR
+
+NUM_FILES==$((RANDOM % 6 + 5))
+
+for ((i=0; i<$NUM_FILES; i++)); do
+    FILE_NAME="$OUT_DIR/file_$i.txt"
+    dd if=/dev/urandom of="$FILE_NAME" bs=1024 count=$((RANDOM % 1024 +1)) 2> /dev/null
+done
+
+echo $OUT_DIR

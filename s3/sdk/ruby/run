@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+BUCKET='practice2-timrxd'
+bundle exec ruby s3.rb
+

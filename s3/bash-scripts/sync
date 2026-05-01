@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+echo "Syncing objects..."
+
+if [ -z $1 ]; then
+    echo "No directory provided"
+    exit 1
+fi
+
+if [ -z $2 ]; then
+    echo "No bucket name provided"
+    exit 1
+fi
+
+aws s3 sync \
+    $1 \
+    s3://$2
